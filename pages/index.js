@@ -1,16 +1,20 @@
 import Head from 'next/head'
+import Link from 'next/link'
+import { getSortedPostsData } from '../lib/posts';
 
-export default function Home() {
+export default function Home({ allPostsData }) {
   return (
     <div className="container">
       <Head>
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
+		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
       </Head>
 
       <main>
         <h1 className="title">
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
+          Learn <Link href="/about"><a>Next.js!</a></Link>
         </h1>
 
         <p className="description">
@@ -46,6 +50,20 @@ export default function Home() {
             </p>
           </a>
         </div>
+		<section>
+        <h2>Blog</h2>
+        <ul>
+          {allPostsData.map(({ id, date, title }) => (
+            <li key={id}>
+              {title}
+              <br />
+              {id}
+              <br />
+              {date}
+            </li>
+          ))}
+        </ul>
+      </section>
       </main>
 
       <footer>
@@ -207,3 +225,12 @@ export default function Home() {
     </div>
   )
 }
+
+export async function getStaticProps() {
+	const allPostsData = getSortedPostsData()
+	return {
+	  props: {
+		allPostsData
+	  }
+	}
+  }

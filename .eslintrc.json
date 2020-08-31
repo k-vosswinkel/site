@@ -1,0 +1,15 @@
+{
+	"extends": [
+		"eslint:recommended",
+		"plugin:react/recommended",
+		"standard"
+	],
+	"rules": {
+		"react/react-in-jsx-scope": "off",
+		"indent": [ "error", "tab" ],
+		"no-tabs": [ "error", { "allowIndentationTabs": true } ]
+	},
+	"globals": {
+		"React": "writable"
+	}
+}

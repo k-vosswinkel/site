@@ -1,0 +1,39 @@
+.section {
+	padding: 20px;
+}
+
+.section:nth-child(even) {
+	background-image: url('/background-hex.jpg');
+	background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.header {
+	position: relative;
+	margin: 10px;
+}
+
+.title {
+	position: absolute;
+	top: 40%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	font-size: 24px;
+	width: 100%;
+	text-align: center;
+}
+
+.subtitle {
+	font-size: 22px;
+	top: 20%;
+}
+
+.profile {
+	width: 125px;
+	border-radius: 50%;
+	margin: 0 auto;
+}
+
+.watercolor {
+	margin: 0 auto;
+}

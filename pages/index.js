@@ -1,236 +1,53 @@
 import Head from 'next/head'
-import Link from 'next/link'
-import { getSortedPostsData } from '../lib/posts';
+import styles from './styles.module.css'
+import classNames from 'classnames/bind'
 
-export default function Home({ allPostsData }) {
-  return (
-    <div className="container">
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
-		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
-      </Head>
+const cx = classNames.bind(styles)
 
-      <main>
-        <h1 className="title">
-          Learn <Link href="/about"><a>Next.js!</a></Link>
-        </h1>
+export default function Home () {
+	return (
+		<div className="container">
+			<Head>
+				<title>Kait Hoehne - Software Engineer</title>
+				<link rel="icon" href="/favicon.ico" />
+				<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
+				<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+			</Head>
 
-        <p className="description">
-          Get started by editing <code>pages/index.js</code>
-        </p>
-
-        <div className="grid">
-          <a href="https://nextjs.org/docs" className="card">
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className="card">
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/zeit/next.js/tree/master/examples"
-            className="card"
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className="card"
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-		<section>
-        <h2>Blog</h2>
-        <ul>
-          {allPostsData.map(({ id, date, title }) => (
-            <li key={id}>
-              {title}
-              <br />
-              {id}
-              <br />
-              {date}
-            </li>
-          ))}
-        </ul>
-      </section>
-      </main>
-
-      <footer>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className="logo" />
-        </a>
-      </footer>
-
-      <style jsx>{`
-        .container {
-          min-height: 100vh;
-          padding: 0 0.5rem;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-        }
-
-        main {
-          padding: 5rem 0;
-          flex: 1;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-        }
-
-        footer {
-          width: 100%;
-          height: 100px;
-          border-top: 1px solid #eaeaea;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-
-        footer img {
-          margin-left: 0.5rem;
-        }
-
-        footer a {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-
-        a {
-          color: inherit;
-          text-decoration: none;
-        }
-
-        .title a {
-          color: #0070f3;
-          text-decoration: none;
-        }
-
-        .title a:hover,
-        .title a:focus,
-        .title a:active {
-          text-decoration: underline;
-        }
-
-        .title {
-          margin: 0;
-          line-height: 1.15;
-          font-size: 4rem;
-        }
-
-        .title,
-        .description {
-          text-align: center;
-        }
-
-        .description {
-          line-height: 1.5;
-          font-size: 1.5rem;
-        }
-
-        code {
-          background: #fafafa;
-          border-radius: 5px;
-          padding: 0.75rem;
-          font-size: 1.1rem;
-          font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
-            DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
-        }
-
-        .grid {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          flex-wrap: wrap;
-
-          max-width: 800px;
-          margin-top: 3rem;
-        }
-
-        .card {
-          margin: 1rem;
-          flex-basis: 45%;
-          padding: 1.5rem;
-          text-align: left;
-          color: inherit;
-          text-decoration: none;
-          border: 1px solid #eaeaea;
-          border-radius: 10px;
-          transition: color 0.15s ease, border-color 0.15s ease;
-        }
-
-        .card:hover,
-        .card:focus,
-        .card:active {
-          color: #0070f3;
-          border-color: #0070f3;
-        }
-
-        .card h3 {
-          margin: 0 0 1rem 0;
-          font-size: 1.5rem;
-        }
-
-        .card p {
-          margin: 0;
-          font-size: 1.25rem;
-          line-height: 1.5;
-        }
-
-        .logo {
-          height: 1em;
-        }
-
-        @media (max-width: 600px) {
-          .grid {
-            width: 100%;
-            flex-direction: column;
-          }
-        }
-      `}</style>
-
-      <style jsx global>{`
-        html,
-        body {
-          padding: 0;
-          margin: 0;
-          font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-            Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
-            sans-serif;
-        }
-
-        * {
-          box-sizing: border-box;
-        }
-      `}</style>
-    </div>
-  )
+			<main>
+				<section className={styles.section}>
+					<img className={styles.profile} src="/profile-pic-2.png" />
+					<header className={styles.header}>
+						<img className={styles.watercolor} src="/watercolor-rectangle.png" />
+						<h1 className={styles.title}>Hi, I&lsquo;m Kait.</h1>
+					</header>
+					<summary className="description"> I’m a full stack software engineer who is passionate about code and storytelling. Currently, I work with the fantastic team at Quartz.</summary>
+				</section>
+				<section className={styles.section}>
+					<h2>A little about me</h2>
+					<p>I’m a hybrid. I don’t have a degree in CS. I found my way to code through multi-media journalism. I spent the first 10 years of my career as a photojournalist, then digital editor, then digital producer.</p>
+					<p>I spend a lot of time thinking about the intersection between communications and code. How can we write accessible code? How can we give journalists better tools?</p>
+					<p>Things that are important to me work/life balance. Nature. Community. Creativity.</p>
+				</section>
+				<section className={styles.section}>
+					<header className={styles.header}>
+						<img className={styles.watercolor} src="/watercolor-swipe.png" />
+						<h2 className={cx('title', 'subtitle')}>Hills & dragons</h2>
+					</header>
+					<h3>Dragon I would like to slay: Imposter syndrome</h3>
+					<p>Coders do not look or act a certain way. We all have different strengths, skill sets and points of view. We can and should evaluate ourselves and our employees with ambition and drive, but we can also find balance through empathy, patience, and inclusion.</p>
+					<h3>Hill to die on</h3>
+					<p>We need to stop thinking about technical education, especially coding, as a specifically STEM endeavor, or as a niche interest. If we explored different teaching methods and expected a higher base level of tech literacy, it would help (in one small way) to diversify the voices we hear from in tech.</p>
+				</section>
+				<section className={styles.section}>
+					<h2>My work</h2>
+				</section>
+				<section className={styles.section}>
+					<h2>Outside of work</h2>
+					<p>I love animals and the outdoors. I grew up camping and love to hike and backpack. Someday, I dream of having a sprawling garden and owning some chickens or a duck. Maybe a goat if I get really ambitious.</p>
+					<p>I am a hobbyist - I love learning to craft new things, whether it’s sewing, knitting, baking or painting.</p>
+				</section>
+			</main>
+		</div>
+	)
 }
-
-export async function getStaticProps() {
-	const allPostsData = getSortedPostsData()
-	return {
-	  props: {
-		allPostsData
-	  }
-	}
-  }

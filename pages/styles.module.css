@@ -1,5 +1,7 @@
+/* 600px, 900px, 1200px */
 .section {
 	padding: 20px;
+	border-bottom: 1px solid #c2c2c2;
 }
 
 .section:nth-child(even) {
@@ -8,19 +10,29 @@
     background-size: cover;
 }
 
+.section:nth-child(odd) {
+	background-color: #ededed;
+}
+
 .header {
 	position: relative;
 	margin: 10px;
 }
 
-.title {
+.title-container {
+	margin-top: 10px;
 	position: absolute;
-	top: 40%;
+	top: 35%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-	font-size: 24px;
 	width: 100%;
 	text-align: center;
+}
+
+.title {
+	font-size: 24px;
+	width: 100%;
+	margin-top: 5px;
 }
 
 .subtitle {
@@ -29,11 +41,38 @@
 }
 
 .profile {
-	width: 125px;
 	border-radius: 50%;
 	margin: 0 auto;
+	box-shadow: 0 0 5px gray;
 }
 
 .watercolor {
 	margin: 0 auto;
+}
+
+/* Tablet Portrait */
+@media ( min-width: 600px ) {
+	.title-container {
+		top: 40%;
+	}
+
+	.title {
+		font-size: 36px;
+		margin-top: 25px;
+	}
+}
+
+
+/* Tablet Landscape */
+@media ( min-width: 900px ) {
+	.title {
+		font-size: 36px;
+	}
+}
+
+/* Desktop */
+@media ( min-width: 1200px ) {
+	.title {
+		font-size: 36px;
+	}
 }

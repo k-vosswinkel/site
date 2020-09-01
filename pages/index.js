@@ -16,10 +16,17 @@ export default function Home () {
 
 			<main>
 				<section className={styles.section}>
-					<img className={styles.profile} src="/profile-pic-2.png" />
 					<header className={styles.header}>
 						<img className={styles.watercolor} src="/watercolor-rectangle.png" />
-						<h1 className={styles.title}>Hi, I&lsquo;m Kait.</h1>
+						<div className={styles['title-container']}>
+							<img className={styles.profile}
+								srcSet="/profile-pic-2.png 500w, /profile-pic-2-lg.png 1190w"
+								sizes="(max-width: 600px) 110px, (max-width: 900px) 200px, 400px"
+								src="/profile-pic-2-lg.png"
+								alt="Kait Hoehne profile picture"
+							/>
+							<h1 className={styles.title}>Hi, I&lsquo;m Kait.</h1>
+						</div>
 					</header>
 					<summary className="description"> I’m a full stack software engineer who is passionate about code and storytelling. Currently, I work with the fantastic team at Quartz.</summary>
 				</section>
